@@ -8,4 +8,4 @@ Select
 left join sales.SalesOrderDetail SO 
     on P.productid = SO.productid
 group by p. name 
-order by totalRevenue desc 
+order by totalRevenue desc; 
