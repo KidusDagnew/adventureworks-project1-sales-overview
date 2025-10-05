@@ -2,11 +2,11 @@
    Uses: JOIN, COUNT, GROUP BY
    Output: TerritoryName, TotalOrders*/
 
-Select 
-    ST.name as TerritoryName ,
-    COUNT(SO.Salesorderid) as AmountOrdered
-from sales.SalesOrderHeader SO
-join sales.SalesTerritory ST
-    on SO.territoryid = ST.territoryid
-group by ST.name 
-order by AmountOrdered desc;
+SELECT
+    ST.name AS TerritoryName ,
+    COUNT(SO.Salesorderid) AS AmountOrdered
+FROM sales.SalesOrderHeader SO
+JOIN sales.SalesTerritory ST
+    ON SO.territoryid = ST.territoryid
+GROUP BY ST.name 
+ORDER BY AmountOrdered DESC;
