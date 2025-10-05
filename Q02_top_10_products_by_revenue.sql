@@ -2,11 +2,11 @@
    Uses: JOIN, SUM, GROUP BY, TOP, ORDER BY
    Output: ProductName, TotalRevenue*/
 
-Select TOP 10
-        P.name as 'ProductName',
-        SUM(SO.linetotal) as 'totalRevenue' 
-from Production.Product p 
-left join sales.SalesOrderDetail SO 
-    on P.productid = SO.productid
-group by P.name 
-order by totalRevenue desc; 
+SELECT TOP 10
+        P.name AS 'ProductName',
+        SUM(SO.linetotal) AS 'totalRevenue' 
+FROM Production.Product p 
+LEFT JOIN sales.SalesOrderDetail SO 
+    ON P.productid = SO.productid
+GROUP BY P.name 
+ORDER BY totalRevenue DESC; 
