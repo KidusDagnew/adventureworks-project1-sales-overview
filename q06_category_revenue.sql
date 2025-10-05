@@ -1,5 +1,6 @@
-
-/* Q06: Show revenue by product category. Join ProductCategory → ProductSubcategory → Product → Sales.SalesOrderDetail. */
+/* Q06: Show the total revenue for each product category.
+   Uses: Multiple JOINs, SUM, GROUP BY
+   Output: CategoryName, TotalRevenue */
 
 Select 
     PC.name,
@@ -8,9 +9,9 @@ from production.productcategory PC
 join production.productsubcategory PS 
      on PC.productcategoryid = PS.productcategoryid
 Join production.product P 
-    on ps.ProductsubCategoryid = p.productsubcategoryid 
+    on PS.ProductsubCategoryid = P.productsubcategoryid 
 join sales.SalesOrderDetail SOD 
-    on p.productid = SOD.productid 
-GROUP by pc.name 
+    on P.productid = SOD.productid 
+GROUP by PC.name 
 order by revenue desc;
 
