@@ -1,12 +1,10 @@
-/* Q08: Show monthly revenue trends across all orders.
-   Uses: DATEPART or FORMAT for month, SUM, GROUP BY
-   Output: YearMonth, TotalRevenue */
+/* Q08: Show monthly revenue trends (TotalDue by month). Use Sales.SalesOrderHeader. */
 
 Select 
-    YEAR(orderdate) AS orderyear,
-    MONTH(orderdate) AS ordermonth,
-    SUM(totaldue) AS totalrevenue  
-FROM sales.salesorderheader 
-GROUP BY YEAR(orderdate), MONTH(orderdate) 
-ORDER BY orderyear, ordermonth;
+    year(orderdate) as orderyear,
+    month(orderdate) as ordermonth,
+    sum(totaldue) as totalrevenue  
+from sales.salesorderheader 
+group by year(orderdate), month(orderdate) 
+order by orderyear, ordermonth;
 

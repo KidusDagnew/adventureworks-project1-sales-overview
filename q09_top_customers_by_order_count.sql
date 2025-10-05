@@ -1,14 +1,12 @@
-/* Q09: List the top customers ranked by number of orders placed.
-   Uses: JOIN, COUNT, GROUP BY, ORDER BY
-   Output: CustomerName, TotalOrders */
+/* Q09: List the top 10 customers by number of orders. */
 
 SELECT TOP 10
-   CONCAT(P.FirstName, ' ', P.LastName) AS Name,
-   COUNT(SOH.SalesOrderID) AS numberOfOrders
-FROM Sales.Customer C
-JOIN Sales.SalesOrderHeader SOH
-    ON C.CustomerID = SOH.CustomerID
-JOIN Person.Person P
-    ON C.PersonID = P.BusinessEntityID
-GROUP BY CONCAT(P.FirstName, ' ', P.LastName)
+   concat(p.FirstName, ' ', p.LastName) AS Name,
+   COUNT(soh.SalesOrderID) AS numberOfOrders
+FROM Sales.Customer c
+JOIN Sales.SalesOrderHeader soh
+    ON c.CustomerID = soh.CustomerID
+JOIN Person.Person p
+    ON c.PersonID = p.BusinessEntityID
+GROUP BY concat(p.FirstName, ' ', p.LastName)
 ORDER BY numberOfOrders DESC;
