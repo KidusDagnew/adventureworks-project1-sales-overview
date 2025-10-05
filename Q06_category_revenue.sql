@@ -2,16 +2,16 @@
    Uses: Multiple JOINs, SUM, GROUP BY
    Output: CategoryName, TotalRevenue */
 
-Select 
+SELECT
     PC.name,
-    SUM(SOD.linetotal) as Revenue 
-from production.productcategory PC
-join production.productsubcategory PS 
-     on PC.productcategoryid = PS.productcategoryid
-Join production.product P 
-    on PS.ProductsubCategoryid = P.productsubcategoryid 
-join sales.SalesOrderDetail SOD 
-    on P.productid = SOD.productid 
-GROUP by PC.name 
-order by revenue desc;
+    SUM(SOD.linetotal) AS Revenue 
+FROM production.productcategory PC
+JOIN production.productsubcategory PS 
+     ON PC.productcategoryid = PS.productcategoryid
+JOIN production.product P 
+    NO PS.ProductsubCategoryid = P.productsubcategoryid 
+JOIN sales.SalesOrderDetail SOD 
+    ON P.productid = SOD.productid 
+GROUP BY PC.name 
+ORDER BY revenue DESC;
 
