@@ -2,9 +2,9 @@
    Uses: SUM, GROUP BY, YEAR(), ORDER BY
    Output: OrderYear, TotalSalesAmount */
 
-Select 
-   SUM(totaldue) as 'Total Sales Amount For The Year ',
-   YEAR(orderdate) as  'Order Date'
-from sales.SalesOrderHeader
-group by YEAR(orderdate);
+SELECT
+   SUM(totaldue) AS 'Total Sales Amount For The Year ',
+   YEAR(orderdate) AS  'Order Date'
+FROM sales.SalesOrderHeader
+GROUP BY YEAR(orderdate);
 
