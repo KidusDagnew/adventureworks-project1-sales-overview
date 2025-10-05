@@ -4,7 +4,7 @@
 
 Select 
     ST.name as TerritoryName ,
-    count(SO.Salesorderid) as AmountOrdered
+    COUNT(SO.Salesorderid) as AmountOrdered
 from sales.SalesOrderHeader SO
 join sales.SalesTerritory ST
     on SO.territoryid = ST.territoryid
