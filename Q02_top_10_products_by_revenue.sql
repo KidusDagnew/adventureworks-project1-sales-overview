@@ -4,7 +4,7 @@
 
 Select TOP 10
         P.name as 'ProductName',
-        sum(SO.linetotal) as 'totalRevenue' 
+        SUM(SO.linetotal) as 'totalRevenue' 
 from Production.Product p 
 left join sales.SalesOrderDetail SO 
     on P.productid = SO.productid
